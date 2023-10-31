@@ -1,24 +1,34 @@
-# Volta Club Contracts
+# Volta Club Smart Contracts
 
-## Deploy Setup
+Welcome to the Volta Club Smart Contracts repository! This documentation provides you with all the necessary information and steps to successfully deploy and interact with the Volta Club smart contracts.
 
-1. Add a .env file (to the root project directory) with your MNEMONIC="" and fund your wallet in order to deploy!
-2. Install npm packages - `yarn install` or `npm install`
+## Getting Started
+To set up your development environment and deploy the contracts, follow these steps:
 
-## Wonderland.sol - an omnichain ERC20
+### 1. Install Dependencies
+Ensure that you have Node.js and Yarn installed on your machine. Then, install the required npm packages by running
+`yarn install`.
 
-> WARNING: **You must perform the setTrustedRemote() (step 2).**
-
-Deploy two contracts - Wonderland & Migration:
-
-```angular2html
-yarn deploy:network <network>
-npm run deploy:network <network>
+### 2. Configure Environment Variables
+Create a .env file in the root directory of the project. This file should contain your wallet's mnemonic and any other required environment variables. Be sure to fund your wallet to facilitate contract deployment. An example configuration might look like this:
+```sh
+MNEMONIC="your wallet mnemonic here"
+OLD_TOKEN_ADDRESS="your old token to be migrated address here"
 ```
 
-Verify contract
+## Contract Deployment
 
-```angular2html
-yarn verify:network <network> <contract_address> <construct args>
-npm run verify:network <network> <contract_address> <construct args>
+### Deploy Volta.sol and Other Contracts
+
+Volta.sol is an omnichain ERC20 token contract. To deploy Volta.sol and other related contracts such as Migration, run the following commands:
+```sh
+yarn deploy:network <network>
+```
+
+## Post-Deployment: Set Trusted Remote
+> WARNING: You must perform the setTrustedRemote() function call after deployment to ensure proper contract functionality.
+
+## Verify Contract on Etherscan
+```sh
+yarn verify:network <network> <contract_address> <construct_args>
 ```
