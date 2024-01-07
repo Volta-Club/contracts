@@ -83,8 +83,19 @@ module.exports = {
     },
 
     etherscan: {
-        // bnb network
-        apiKey: process.env.SCAN_API_KEY,
+        apiKey: {
+            avalanche: "avalanche",
+        },
+        customChains: [
+            {
+                network: "avalanche",
+                chainId: 43114,
+                urls: {
+                    apiURL: "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan",
+                    browserURL: "https://avalanche.routescan.io",
+                },
+            },
+        ],
     },
 
     networks: {
